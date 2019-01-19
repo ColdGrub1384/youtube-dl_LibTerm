@@ -1249,6 +1249,8 @@ def unified_strdate(date_str, day_first=True):
             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
         except ValueError:
             pass
+        except TypeError:
+            pass
     if upload_date is None:
         timetuple = email.utils.parsedate_tz(date_str)
         if timetuple:
